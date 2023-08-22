@@ -1,11 +1,17 @@
-import './App.scss'
+import './App.scss';
+import { HomeSection } from './components/HomeSection';
+
+import { StaticSection } from './components/StaticSection';
 
 function App() {
   return (
-    <>
-      <h1>MacPaw Bootcamp 2023</h1>
-    </>
-  )
+    <main className="page__main">
+      <div className="container">
+        <StaticSection />
+        <HomeSection />
+      </div>
+    </main>
+  );
 }
 
 export default App
