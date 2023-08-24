@@ -1,0 +1,84 @@
+@import "../../styles/utils/variables";
+
+.voting {
+  &__img {
+    height: 360px;
+    position: relative;
+    margin-bottom: 52px;
+  }
+
+  &__img1 {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+  }
+
+  &__actions {
+    position: absolute;
+    right: 50%;
+    transform: translate(50%, 50%);
+    bottom: 0;
+  }
+
+  &__btn {
+    padding: 25px;
+    transition: all 0.3s;
+
+    path {
+      fill: $white;
+    }
+
+    &--disabled {
+      pointer-events: none;
+    }
+
+    &--like {
+      background-color: $green;
+      border: 5px solid $white;
+      border-top-left-radius: 25px;
+      border-bottom-left-radius: 25px;
+
+      &:hover {
+        background-color: #97EAB94D;
+      }
+  
+      &:hover path {
+        fill: $green;
+      }
+    }
+
+    &--fav {
+      background-color: $primary-color;
+      border-top: 5px solid $white;
+      border-bottom: 5px solid $white;
+
+      &:hover {
+        background-color: #FF868E4D;
+      }
+  
+      &:hover path {
+        fill: $primary-color;
+      }
+    }
+
+    &--dis {
+      background-color: $yellow;
+      border: 5px solid $white;
+      border-top-right-radius: 25px;
+      border-bottom-right-radius: 25px;
+
+      &:hover {
+        background-color: #FFD2804D;
+      }
+  
+      &:hover path {
+        fill: $yellow;
+      }
+    }
+  }
+}

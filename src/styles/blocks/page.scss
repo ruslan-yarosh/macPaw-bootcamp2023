@@ -1,5 +1,6 @@
 .page {
   font-family: 'Jost', Helvetica, Arial, sans-serif;
+  color: #8C8C8C;
   margin: 0;
   padding: 0;
 
@@ -8,5 +9,10 @@
     margin: 0;
     padding: 0;
     background-color: #F8F8F7;
+  }
+
+  &__section {
+    min-width: 680px;
+    min-height: 840px;
   }
 }

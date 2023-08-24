@@ -1,0 +1,13 @@
+@import "../../styles/utils/variables";
+
+.content {
+  min-height: 782px;
+  padding: 20px;
+
+  border-radius: 20px;
+  background-color: $white;
+
+  &__top {
+    margin-bottom: 20px;
+  }
+}

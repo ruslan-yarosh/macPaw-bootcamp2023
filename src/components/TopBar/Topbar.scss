@@ -1,0 +1,66 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.topbar {
+  display: flex;
+  gap: 10px;
+
+  &--height {
+    height: 60px;
+  }
+
+  &--margin {
+    margin-bottom: 10px;
+  }
+
+  &__form {
+    position: relative;
+    width: 470px;
+    height: 100%;
+  }
+  
+  &__field {
+    height: 100%;
+    width: 100%;
+    padding: 0 60px 0 20px;
+    
+    outline: none;
+    
+    @include border(transparent);
+    border-radius: 20px;
+  
+    font-size: 20px;
+    line-height: 30px;
+    color: $title-color;
+
+    @include hover(border-color, $hover-color);
+  
+    &::placeholder {
+      color: #8C8C8C;
+    }
+  
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+  
+  &__search-btn {
+    position: absolute;
+    padding: 10px;
+    top: 50%;
+    right: 10px;
+  
+    transform: translateY(-50%);
+  
+    border-radius: 10px;
+    background: #FBE0DC;
+  }
+
+  &__link {
+    padding: 15px;
+    background-color: $white;
+    border-radius: 20%;
+
+    @include hover(background-color, $hover-color);
+  }
+}

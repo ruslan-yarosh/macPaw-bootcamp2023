@@ -1,0 +1,50 @@
+@import "../../styles/utils/variables";
+
+.user-log {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+
+  line-height: 24px;
+
+  background-color: #F8F8F7;
+  border-radius: 10px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__time {
+    padding: 3px 10px;
+
+    color: $title-color;
+
+    background-color: $white;
+    border-radius: 5px;
+  }
+
+  &__bold {
+    font-weight: 500;
+    color: $title-color;
+  }
+
+  &__like {
+    path {
+      fill: $green;
+    }
+  }
+
+  &__dislike {
+    path {
+      fill: $yellow;
+    }
+  }
+}
