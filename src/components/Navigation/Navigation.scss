@@ -4,7 +4,14 @@
   display: flex;
   gap: 16px;
 
-  &__card {
+  &__link {
+    display: inline-block;
+    height: 100%;
+
+    &--active {
+      pointer-events: none;
+    }
+
     &:hover .nav__name {
       background-color: $hover-color;
     }
@@ -12,11 +19,6 @@
     &:hover .nav__img-container {
       border-color: $white;
     }
-  }
-
-  &__link {
-    display: inline-block;
-    height: 100%;
   }
 
   &__img-container {
@@ -30,16 +32,20 @@
     border-radius: 20px;
     transition: border-color 0.3s;
 
+    &--active {
+      border-color: $hover-color;
+    }
+
     &--voting {
       background-color: #B4B7FF;
     }
 
     &--breeds {
-      background-color: #97EAB9;
+      background-color: $green;
     }
 
     &--gallery {
-      background-color: #FFD280;
+      background-color: $yellow;
     }
   }
 
@@ -63,5 +69,10 @@
     border-radius: 10px;
     background-color: $white;
     transition: background-color 0.3s;
+
+    &--active {
+      background-color: $primary-color;
+      color: $white;
+    }
   }
 }

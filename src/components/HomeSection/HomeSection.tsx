@@ -4,12 +4,13 @@ import './HomeSection.scss';
 
 export const HomeSection = () => {
   return (
-    <section className="home">
+    <section className="page__section home">
         <img 
           src={girlAndPet} 
           alt="Girl and pet"
           className="home__img"
         />
+
         <div className="home__content" />
     </section>
   );

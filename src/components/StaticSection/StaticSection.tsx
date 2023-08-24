@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import logo from '../../assets/Logo.svg';
 import { Navigation } from '../Navigation';
 
@@ -8,9 +9,9 @@ export const StaticSection = () => {
     <>
       <section className="static">
         <header className="static__header">
-          <a href="/" className="static__img-link">
+          <Link to="/" className="static__img-link">
             <img className="static__logo" src={logo} alt="Page logo" />
-          </a>
+          </Link>
 
           <h1 className="static__title">Hi!👋</h1>
 
