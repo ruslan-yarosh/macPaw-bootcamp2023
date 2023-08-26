@@ -13,6 +13,7 @@ import { UserLog } from '../UserLog';
 import { useLocalStorage } from '../../helpers/useLocalStorage';
 import { LogType } from '../../types/LogType';
 import { CurrentPage } from '../CurrentPage';
+import { handleAddLog } from '../../helpers/handleAddLog';
 
 type ResponseType = {
   id: string,
@@ -20,14 +21,17 @@ type ResponseType = {
 }
 
 export const VotingSection: React.FC = () => {
-  const [randomImg, setRandomImg] = useState<ResponseType | null>(null);
+  const [randomImg, setRandomImg] = useState<ResponseType>({
+    id: '',
+    url: '',
+  });
   const [isLoading, setIsLoading] = useState(true);
   const [userLog, setUserLog] = useLocalStorage<LogType[]>('userLog', []);
 
   const handleAddAction = useCallback(async (url: string, value?: string,) => {
     try {
       await request(url, 'POST', {
-        image_id: randomImg?.id,
+        image_id: randomImg.id,
         sub_id: 'test',
         value,
       })
@@ -50,39 +54,20 @@ export const VotingSection: React.FC = () => {
     }
   }, []);
 
-  const handleAddLog = (action: string) => {
-    const date = new Date;
-    const time = date.toLocaleTimeString('uk-UA', {
-      hour: '2-digit',
-      minute: '2-digit'
-    });
-
-    if (randomImg) {
-      setUserLog([
-        {
-          time: time,
-          imgId: randomImg.id,
-          action,
-        },
-        ...userLog,
-      ])
-    }
-  }
-
   const handleLikeClick = () => {
-    handleAddLog('Likes');
+    handleAddLog('Likes', userLog, randomImg.id, setUserLog);
 
     Promise.all([handleAddAction('votes', '1'), handleGetImg()]);
   };
 
   const handleDislikeClick = () => {
-    handleAddLog('Dislikes');
+    handleAddLog('Dislikes', userLog, randomImg.id, setUserLog);
 
     Promise.all([handleAddAction('votes', '0'), handleGetImg()]);
   }
 
   const handleFavouriteClick = () => {
-    handleAddLog('Favourites');
+    handleAddLog('Favourites', userLog, randomImg.id, setUserLog);
 
     Promise.all([handleAddAction('favourites'), handleGetImg()]);
   }
@@ -102,13 +87,13 @@ export const VotingSection: React.FC = () => {
             <CurrentPage pageName='Voting' />
           </div>
 
-          <div className="voting__img">
+          <div className="voting__wrapper-img">
             {isLoading ? (
               <Loader />
             ) : (
               <img 
-                src={randomImg?.url} 
-                className="voting__img1"
+                src={randomImg.url} 
+                className="voting__img"
                 alt="Cat image" 
               />
             )}
