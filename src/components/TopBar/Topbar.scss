@@ -62,5 +62,14 @@
     border-radius: 20%;
 
     @include hover(background-color, $hover-color);
+
+    &--active {
+      background-color: $primary-color;
+      pointer-events: none;
+
+      path {
+        fill: $white;
+      }
+    }
   }
 }

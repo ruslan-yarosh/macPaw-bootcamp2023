@@ -6,6 +6,8 @@ import {ReactComponent as FavIcon} from '../../assets/icons/fav.svg';
 import {ReactComponent as DislikeIcon} from '../../assets/icons/dislike.svg';
 
 import './Topbar.scss';
+import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 
 export const Topbar: React.FC = () => {
@@ -31,17 +33,32 @@ export const Topbar: React.FC = () => {
         </button>
       </form>
 
-      <a href="/" className="topbar__link">
+      <NavLink 
+        to="/likes" 
+        className={({ isActive }) => classNames('topbar__link', {
+           'topbar__link--active': isActive 
+        })}
+      >
         <LikeIcon />
-      </a>
+      </NavLink>
 
-      <a href="/" className="topbar__link">
+      <NavLink 
+        to="/favourites" 
+        className={({ isActive }) => classNames('topbar__link', {
+           'topbar__link--active': isActive 
+        })}
+      >
         <FavIcon />
-      </a>
+      </NavLink>
 
-      <a href="/" className="topbar__link">
+      <NavLink 
+        to="/dislikes" 
+        className={({ isActive }) => classNames('topbar__link', {
+           'topbar__link--active': isActive 
+        })}
+      >
         <DislikeIcon />
-      </a>
+      </NavLink>
     </div>
   );
 }
