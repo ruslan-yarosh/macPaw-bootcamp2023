@@ -2,14 +2,20 @@
 
 .user-log {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px;
+  flex-direction: column;
+  gap: 10px;
 
-  line-height: 24px;
-
-  background-color: #F8F8F7;
-  border-radius: 10px;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+  
+    line-height: 24px;
+  
+    background-color: $primary-bg-color;
+    border-radius: 10px;
+  }
 
   svg {
     width: 20px;
