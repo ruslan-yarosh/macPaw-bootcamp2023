@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { CurrentPage } from '../CurrentPage';
 import { Topbar } from '../TopBar';
-import './FavouritesSection.scss';
 import {ReactComponent as FavIconWhite} from '../../assets/icons/fav-full-white.svg';
 import { request } from '../../api/fetch';
 import { Loader } from '../Loader';
@@ -12,12 +11,20 @@ import { FavouriteType } from '../../types/FavouriteType';
 import { handleAddLog } from '../../helpers/handleAddLog';
 import { NoItemsMessage } from '../NoItemsMessage';
 import { grid } from '../../helpers/grid';
+import classNames from 'classnames';
 
+type Props = {
+  setFavouritesId: React.Dispatch<React.SetStateAction<string[]>>,
+}
 
-export const FavouritesSection: React.FC = () => {
+export const FavouritesSection: React.FC<Props> = ({ setFavouritesId }) => {
   const [favourites, setFavourites] = useState<FavouriteType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [userLog, setUserLog] = useLocalStorage<LogType[]>('userLog', []);
+
+  const favIds = useMemo(() => (
+    favourites.map(el => el.image.id)
+  ), [favourites])
 
   const handleGetFav = useCallback(async () => {
     try {
@@ -42,13 +49,22 @@ export const FavouritesSection: React.FC = () => {
       console.log('Error');
     }
 
+    setFavouritesId(state => state.filter(el => el !== image_id));
     handleAddLog('Favourites', userLog, image_id, setUserLog, 'remove');
-  }, [userLog, setUserLog]);
+  }, [setFavouritesId, userLog, setUserLog]);
 
   useEffect(() => {
     handleGetFav();
+
   }, [handleGetFav]);
 
+  useEffect(() => {
+    setFavouritesId(state => [
+      ...state,
+      ...favIds,
+    ])
+  }, [favIds, setFavouritesId])
+  
   return (
     <section className="page__section favourites">
       <div className="favourites__wrapper">
@@ -79,11 +95,13 @@ export const FavouritesSection: React.FC = () => {
                       className="grid__img"
                       alt="Cat image"
                     />
-                    {/* Make button as component */}
+
                     <div className="grid__wrapper">
                       <button
                         type="button"
-                        className="grid__fav-btn"
+                        className={classNames('grid__btn', {
+                          'grid__btn--active': favIds.includes(fav.image.id),
+                        })}
                         onClick={() => handleDeleteFav(fav)}
                       >
                         <FavIconWhite />
