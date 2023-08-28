@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+path {
+  transition: all 0.3s;
+}
+
 svg,
 img {
   vertical-align: top;
