@@ -58,8 +58,6 @@ export const VotingResult: React.FC<Props> = ({ pageName }) => {
     handleGetVotes();
   }, [handleGetVotes]);
 
-  console.log(votes);
-
   return (
     <section className={`page__section ${className}`}>
       <div className={`${className}__wrapper`}>
@@ -93,7 +91,7 @@ export const VotingResult: React.FC<Props> = ({ pageName }) => {
                     <div className="grid__wrapper">
                       <button
                         type="button"
-                        className="grid__fav-btn"
+                        className="grid__btn"
                         onClick={() => handleDeleteVote(el)}
                       >
                         <CloseIcon />
