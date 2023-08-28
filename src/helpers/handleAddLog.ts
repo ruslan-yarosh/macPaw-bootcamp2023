@@ -18,6 +18,7 @@ export const handleAddLog = (
 
   setLog([
     {
+      id: +new Date,
       time,
       imgId,
       page,
