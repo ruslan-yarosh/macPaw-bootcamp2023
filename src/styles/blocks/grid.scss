@@ -24,12 +24,6 @@
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-
-    // transform: translate(-50%, -50%);
-    border-radius: 20px;
   }
 
   &__wrapper {
@@ -50,10 +44,32 @@
     background-color: #FF868E99;
   }
 
-  &__fav-btn {
+  &__btn {
     padding: 10px;
 
     border-radius: 10px;
-    background-color: $primary-color;
+    background-color: $white;
+
+    path {
+      fill: $primary-color;
+    }
+
+    &--active {
+      background-color: $primary-color;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+
+  &__link {
+    align-self: flex-end;
+    padding: 5px 42px;
+    margin-bottom: 10px;
+
+    color: $primary-color;
+    background-color: $white;
+    border-radius: 10px;
   }
 }

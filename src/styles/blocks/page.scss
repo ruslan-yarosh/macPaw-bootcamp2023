@@ -7,10 +7,12 @@
   padding: 0;
 
   &__body {
+    position: relative;
     height: 100vh;
     margin: 0;
     padding: 0;
     background-color: $primary-bg-color;
+    overflow: hidden;
   }
 
   &__section {

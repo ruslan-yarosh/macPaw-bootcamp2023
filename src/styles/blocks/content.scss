@@ -9,6 +9,12 @@
   background-color: $white;
 
   &__top {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
+
+    &--gallery {
+      justify-content: space-between;
+    }
   }
 }
