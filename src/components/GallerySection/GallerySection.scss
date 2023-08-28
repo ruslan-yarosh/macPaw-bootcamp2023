@@ -1,0 +1,32 @@
+@import '../../styles/utils/variables';
+
+.gallery {
+  position: relative;
+
+  &__upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+
+    color: $primary-color;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: background-color, 0.3s;
+    border-radius: 10px;
+    background-color: $hover-color;
+
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+}

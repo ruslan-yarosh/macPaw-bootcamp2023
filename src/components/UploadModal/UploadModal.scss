@@ -1,0 +1,165 @@
+@import '../../styles/utils/variables';
+
+.upload {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+
+  background-color: #1D1D1D99;
+
+  &__content {
+    position: absolute;
+    padding: 20px;
+    width: 680px;
+    height: 840px;
+    top: 30px;
+    left: 50%;
+    bottom: 20px;
+    border-radius: 20px;
+
+    background-color: $primary-bg-color;
+  }
+
+  &__close {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__icon {
+    border-radius: 10px;
+    background-color: $white;
+    padding: 11px;
+    transition: all, 0.3s;
+
+    &:hover {
+      background-color: $primary-color;
+
+      path {
+        fill: $white;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    color: $title-color;
+    font-size: 36px;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  &__info {
+    margin-bottom: 40px;
+
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  &__link {
+    color: $primary-color;
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  &__form {
+    width: 100%;
+    height: 320px;
+    text-align: center;
+    position: relative;
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    font-size: 20px;
+
+    cursor: pointer;
+    border-radius: 20px;
+    border: 2px dashed $hover-color;
+    background-color: $white;
+    background-image: url(../../assets/images/upload-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &__tip {
+    color: $title-color;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  &__drag {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    object-position: center top;
+    border-radius: 20px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &__img-name {
+    font-size: 20px;
+  }
+
+  &__btn {
+    display: block;
+    padding: 12px 30px;
+
+    color: $white;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition: all, 0.3s;
+    border-radius: 10px;
+    background: $primary-color;
+
+    &:hover {
+      color: $primary-color;
+      background-color: $hover-color;
+    }
+  }
+
+  &__error {
+    padding: 18px 50px;
+    background-color: $white;
+    border-radius: 20px;
+  }
+}

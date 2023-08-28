@@ -1,0 +1,48 @@
+@import "../../styles/utils/variables";
+
+.control {
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  bottom: 10px;
+  right: 50%;
+  transform: translateX(50%);
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+
+    color: $primary-color;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
+    border-radius: 10px;
+    background-color: $hover-color;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $white;
+      background-color: $primary-color;
+
+      path {
+        fill: $white;
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+      color: inherit;
+      background-color: $primary-bg-color;
+
+      path {
+        fill: #8C8C8C;
+      }
+    }
+  }
+}

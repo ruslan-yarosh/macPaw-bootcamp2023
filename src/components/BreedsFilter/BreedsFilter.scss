@@ -1,0 +1,49 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+.filters {
+  display: flex;
+  gap: 10px;
+
+  &__select {
+    margin: 0;
+
+    color: inherit;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 24px;
+
+    border: 2px solid transparent;
+    background-color: $primary-bg-color;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    @include hover(border-color, $hover-color);
+
+    &--wide {
+      width: 226px;
+    }
+
+    &--short {
+      width: 101px;
+    }
+  }
+
+  &__order {
+    padding: 0 10px;
+    
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background-color: $primary-bg-color;
+    transition: border-color 0.3s;
+
+    &:hover {
+      border-color: $hover-color;
+
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+}

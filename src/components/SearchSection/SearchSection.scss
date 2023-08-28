@@ -1,0 +1,14 @@
+@import "../../styles/utils/variables";
+
+.search {
+  &__info {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  &__param {
+    color: $title-color;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

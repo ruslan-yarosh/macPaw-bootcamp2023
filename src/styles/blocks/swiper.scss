@@ -1,0 +1,34 @@
+@import "../../styles/utils/variables";
+
+.swiper {
+  &-wrapper {
+    width: 640px;
+    height: 360px;
+    margin-bottom: 52px;
+  }
+
+  &-horizontal > &-pagination-bullets, &-pagination-bullets, &-pagination-horizontal {
+    width: 90px;
+    top: -65px;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  &-pagination {
+    position: relative;
+    border-radius: 10px;
+    background-color: $white;
+
+
+    &-bullet {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $hover-color;
+
+      &-active {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
