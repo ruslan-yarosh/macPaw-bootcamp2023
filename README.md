@@ -2,6 +2,8 @@
 
 Functionality is fully implemented except for the issues described below.
 
+[DEMO-LINK](https://64ec243b80904f4e80691f3d--bejewelled-macaron-e404ef.netlify.app/)
+
 ## Libraries and Dependencies
 
 - React;
