@@ -3,12 +3,14 @@ import React from 'react';
 import {ReactComponent as Back} from '../../assets/icons/back.svg';
 import './CurrentPage.scss';
 import { useNavigate } from 'react-router-dom';
+import classNames from 'classnames';
 
 type Props = {
   pageName: string,
+  breedId?: string,
 }
 
-export const CurrentPage: React.FC<Props> = ({ pageName }) => {
+export const CurrentPage: React.FC<Props> = ({ pageName, breedId = null }) => {
   const navigate = useNavigate();
 
   return (
@@ -21,7 +23,17 @@ export const CurrentPage: React.FC<Props> = ({ pageName }) => {
         <Back />
       </button>
 
-      <span className="current-page__name">{pageName}</span>
+      <span className={classNames('current-page__name', {
+        'current-page__name--not-active': breedId,
+      })}>
+        {pageName}
+      </span>
+
+      {breedId && (
+        <span className="current-page__currentId">
+          {breedId}
+        </span>
+      )}
     </div>
   );
 }

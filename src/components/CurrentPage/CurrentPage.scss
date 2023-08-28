@@ -9,14 +9,14 @@
 
     border-radius: 10px;
     background-color: $hover-color;
-    transition: all 0.3s;
+    transition: background-color 0.3s;
 
     &:hover {
       background-color: $primary-color;
-    }
 
-    &:hover path {
-      fill: $white;
+      path {
+        fill: $white;
+      }
     }
   }
 
@@ -34,5 +34,23 @@
 
     background-color: $primary-color;
     border-radius: 10px;
+
+    &--not-active {
+      color: $primary-color;
+      background-color: $hover-color;
+    }
+  }
+
+  &__currentId {
+    padding: 5px 30px;
+    border-radius: 10px;
+
+    color: $white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    letter-spacing: 2px;
+    background-color: $primary-color;
   }
 }
