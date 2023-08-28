@@ -21,12 +21,12 @@ export const UserLog: React.FC<Props> = ({ userLog, actionPage = '' }) => {
     }
 
     return userLog;
-  }, [location.pathname, userLog, actionPage])
-
+  }, [location.pathname, userLog, actionPage]);
+  
   return (
     <div className="user-log">
       {visibleUserLog.map(log => (
-        <div className="user-log__content" key={log.imgId}>
+        <div className="user-log__content" key={log.id}>
           <div className="user-log__text">
             <span className="user-log__time">{log.time}</span>
 
