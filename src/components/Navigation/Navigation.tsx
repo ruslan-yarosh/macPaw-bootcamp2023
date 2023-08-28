@@ -3,12 +3,10 @@ import breeds from '../../assets/images/breeds.png';
 import gallery from '../../assets/images/gallery.png';
 
 import './Navigation.scss';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 
 export const Navigation = () => {
-  const location = useLocation();
-
   return (
     <nav className="nav">
       <div className="nav__card">
@@ -19,19 +17,12 @@ export const Navigation = () => {
           })}
         >
           <div
-            className={classNames(
-              'nav__img-container', 'nav__img-container--voting', 
-              {
-                'nav__img-container--active': location.pathname === '/voting'
-              }
-            )}
+            className="nav__img-container nav__img-container--voting"
           >
             <img className="nav__img" src={voting} alt="Voting nav" />
           </div>
 
-          <span className={classNames('nav__name', { 
-            'nav__name--active': location.pathname === '/voting'
-          })}>
+          <span className="nav__name">
             Voting
           </span>
         </NavLink>
@@ -45,19 +36,12 @@ export const Navigation = () => {
           })}
         >
           <div
-            className={classNames(
-              'nav__img-container', 'nav__img-container--breeds', 
-              {
-                'nav__img-container--active': location.pathname === '/breeds'
-              }
-            )}
+            className="nav__img-container nav__img-container--breeds"
           >
             <img className="nav__img" src={breeds} alt="Breeds nav" />
           </div>
 
-          <span className={classNames('nav__name', { 
-            'nav__name--active': location.pathname === '/breeds'
-          })}>
+          <span className="nav__name">
             Breeds
           </span>
         </NavLink>
@@ -71,19 +55,12 @@ export const Navigation = () => {
           })}
         >
           <div
-            className={classNames(
-              'nav__img-container', 'nav__img-container--gallery', 
-              {
-                'nav__img-container--active': location.pathname === '/gallery'
-              }
-            )}
+            className="nav__img-container nav__img-container--gallery"
           >
             <img className="nav__img" src={gallery} alt="Gallery nav" />
           </div>
 
-          <span className={classNames('nav__name', { 
-            'nav__name--active': location.pathname === '/gallery'
-          })}>
+          <span className="nav__name">
             Gallery
           </span>
         </NavLink>
